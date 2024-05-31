@@ -1,34 +1,52 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Button from './components/button/button'
 
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const [operation, setOperation]= useState("")
+
+  const addValue = (value : String) => {
+     setOperation(operation + value)
+  }
+
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='container'>
+        <div className='container_input'>
+          {operation}
+        </div>
+        <div className='container_button'>
+          <div className='container_button_digits'>
+            <Button operation={addValue} value="3" />
+            <Button operation={addValue} value="2" />
+            <Button operation={addValue} value="1" />
+            <Button operation={addValue} value="0" />
+          </div>
+          <div className='container_button_digits'>
+            <Button operation={addValue} value="7" />
+            <Button operation={addValue} value="6" />
+            <Button operation={addValue} value="5" />
+            <Button operation={addValue} value="4" />
+          </div>
+          <div className='container_button_digits'>
+            <Button operation={addValue} value="8"  />
+            <Button operation={addValue} value="9"  />
+            <Button operation={addValue} value="," />
+          </div>
+          <div className='container_button_digits'>
+           <Button operation={addValue} value="+" />
+            <Button operation={addValue} value="-" />
+            <Button operation={addValue} value="/" />
+            <Button operation={addValue} value="x" />
+          </div>
+        </div>
+        <div className='container_result'>
+          Result
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
