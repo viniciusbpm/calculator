@@ -1,5 +1,5 @@
-function calcultaorSum(operatorOne:number, operatorTwo:number) {
-    const result = operatorOne + operatorTwo;
-    return result;
+function sum(operatorOne: number, operatorTwo: number) {
+    return operatorOne + operatorTwo
 }
-export default calcultaorSum;
+
+export default sum
